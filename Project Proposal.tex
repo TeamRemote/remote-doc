@@ -29,17 +29,19 @@
 		The team intends to use frequent meetings to ensure effective collaboration between developers, as suggested by the Agile philosophy. These meetings will consist of both \textit{stand-ups}, where team members briefly explain to the group what they have done since the previous meeting and their plans for the near future; and \textit{code sprints}, where developers gather in a group for an intense period of collaborative programming. Pair programming, as discussed in the \Cref{sec:intro}, will be leveraged whenever possible.
 	\subsection{Team Remote Collab}
 		\begin{description}
-			\item[Dibyojyoti Mukherjee]{Dibyojyoti will leverage his knowledge of networking to act as the point person responsible for the implementation of the Remote Collab server. According to the surgical team model used by Fred Brooks in \textit{The Mythical Man-Month}\cite{mythical}, Dibyojyoti will play the role of the surgeon for the server. Dibyojyoti has also played a leadership role, organizing group meetings and developing the team's Agile implementation strategy based on his knowledge of software engineering practices.}
-			\item[Hawk Weisman]{Hawk will act as the primary implementor, or surgeon in Brooks' model\cite{mythical}, for the Remote Collab SublimeText plugin, due to his experience programming in Python. Thus far, Hawk has also acted in the role which Brooks refers to as the toolsmith\cite{mythical}, setting up the Git repositories and continuous integration server.}
+			\item[Dibyojyoti Mukherjee]{Dibyojyoti will leverage his knowledge of networking to act as the point person responsible for the implementation of the Remote Collab server. According to the surgical team model used by Fred Brooks in \textit{The Mythical Man-Month}\cite{mythical}, Dibyojyoti will play the role of the `surgeon' for the server. Dibyojyoti has also played a leadership role, organizing group meetings and developing the team's Agile implementation strategy based on his knowledge of software engineering practices.}
+			\item[Hawk Weisman]{Hawk will act as the primary implementor, or `surgeon' in Brooks' model\cite{mythical}, for the Remote Collab SublimeText plugin, due to his experience programming in Python. Thus far, Hawk has also acted in the role which Brooks refers to as the `toolsmith'\cite{mythical}, setting up the Git repositories and continuous integration server. Hawk has also contributed significantly to the project documentation, writing a majority of this document, and setting up the GitHub Pages site discussed in \Cref{sub:dist}.}
 			\item[Andreas Bach Landgrebe]{}
 			\item[Soukaina Hamimoune]{}
 		\end{description}
 	\subsection{Distribution and Deployment}
+	\label{sub:dist}
 		The Remote Collab plugin for SublimeText will be distributed through the Package Control\cite{packagecontrol} package management system implemented by Will Bond. Package Control simplifies the distribution and maintainance of SublimeText packages by allowing them to be downloaded directly from Git repositories using an interface in the SublimeText application, and by tracking changes and automatically installing updates when they are available.
 
 		The Remote Collab server will be deployed onto the Google Compute Engine\cite{googlecompute} cloud services platform. Google Compute Engine provides virtual machine instances on Google infrastructure that may be rented by the hour. In the case of Remote Collab, these fees will be covered by Google Compute credits earned by Dibyojyoti through his participation in the HackMIT event. The server will also be distributed as an application through GitHub Releases, for individuals or groups interested on running a Remote Collab server on their own infrastructure.
 
 		Documentation will be provided through the GitHub Pages\cite{gh-pages} service, which automatically generates webpages for GitHub repositories based on their README files. The GitHub Pages site for Remote Collab for SublimeText is available at \url{http://teamremote.github.io/remote-sublime/}.
+	\pagebreak
 	\bibliographystyle{IEEEtran}
 	\bibliography{IEEEfull,remote.bib}
 \end{document}
