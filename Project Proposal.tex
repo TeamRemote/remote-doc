@@ -13,6 +13,10 @@
 \affil[2]{Al Akhawayn University, Department of Computer Science}
 \begin{document}
 \maketitle
+	\begin{abstract}
+	Remote Collab is a system for remote pair programming which will allow one or more programmers to work collaboratively on the same document across the Internet. The Remote Collab system will consist of a client, implemented as a plugin for the SublimeText text editor, and a server, which is responsible for synchronizing changes between clients. Both the server and the SublimeText plugin will be released as free and open source software.
+	\end{abstract}
+
 \section{Introduction}
 	\label{sec:intro}
 	\textit{Pair programming}, a practice in which two programmers work collaboratively on the same source code, is a major component of the Agile and Extreme Programming software engineering methodologies. Empirical studies have shown that pair programming improves code quality and reduces bugs and defects, as well as resulting in more efficient and effective designs \cite{cockburn2000costs}. However, a major drawback of this practice is that it traditionally requires the collaborating programmers to share the same physical location, which limits the applicability of pair programming for open-source projects, or for companies where programmers are physically distant. In Computer Science 440, we were asked to implement a project involving remote communication, and we chose to design and create a system allowing remote pair programming, allowing two or more programmers to view the same source-code document and edit it in real time.
@@ -21,19 +25,26 @@
 
 \section{Architecture and Design}
 	\subsection{Architecture}
-		The Remote Collab system will implement the architectural pattern known as the \textit{client-server model}. In this model, multiple agents 
+		The Remote Collab system will implement the architectural pattern known as the \textit{client-server model}. In this model, multiple agents known as \textit{clients} exchange information by communicating with a central \textit{server}.
+
+		% WRITE ABBOUT PUB-SUB HERE
+	\subsection{Design}
+
 \section{Implementation and Deployment}
 	\subsection{Implementation Strategy}
+	\label{sec:implementation}
 		Team Remote has chosen to pursue an implementation strategy based on the philosophy of Agile Software Development. We intend to use GitHub\cite{github} for version control and source code management, as well as using its' issues and milestones to coordinate development. Multiple Git repositories will be used to manage the codebase for the server and the SublimeText plugin. The Travis continuous integration service\cite{travis-ci} will be used to build and test both the server and the SublimeText plugin, using the SublimeText unit testing framework\cite{unittest} implemented by Randy Lai.
 
 		The team intends to use frequent meetings to ensure effective collaboration between developers, as suggested by the Agile philosophy. These meetings will consist of both \textit{stand-ups}, where team members briefly explain to the group what they have done since the previous meeting and their plans for the near future; and \textit{code sprints}, where developers gather in a group for an intense period of collaborative programming. Pair programming, as discussed in the \Cref{sec:intro}, will be leveraged whenever possible.
+
 	\subsection{Team Remote Collab}
 		\begin{description}
 			\item[Dibyojyoti Mukherjee]{Dibyojyoti will leverage his knowledge of networking to act as the point person responsible for the implementation of the Remote Collab server. According to the surgical team model used by Fred Brooks in \textit{The Mythical Man-Month}\cite{mythical}, Dibyojyoti will play the role of the `surgeon' for the server. Dibyojyoti has also played a leadership role, organizing group meetings and developing the team's Agile implementation strategy based on his knowledge of software engineering practices.}
 			\item[Hawk Weisman]{Hawk will act as the primary implementor, or `surgeon' in Brooks' model\cite{mythical}, for the Remote Collab SublimeText plugin, due to his experience programming in Python. Thus far, Hawk has also acted in the role which Brooks refers to as the `toolsmith'\cite{mythical}, setting up the Git repositories and continuous integration server. Hawk has also contributed significantly to the project documentation, writing a majority of this document, and setting up the GitHub Pages site discussed in \Cref{sub:dist}.}
-			\item[Andreas Bach Landgrebe]{}
-			\item[Soukaina Hamimoune]{}
+			\item[Andreas Bach Landgrebe]{Andreas will assist Dibyojyoti with the implementation of the Remote Collab server. Part of Andreas' responsibilities will involve learning more about the Python programming language. Andreas has, thus far, also assissted with the documentation for the project, collaborating with Hawk to prepare this document.}
+			\item[Soukaina Hamimoune]{Soukaina will assist Hawk in implementing the SublimeText 3 plugin. She will also have to increase her familiarity with Python prior to contributing to the implementation of the plugin.}
 		\end{description}
+
 	\subsection{Distribution and Deployment}
 	\label{sub:dist}
 		The Remote Collab plugin for SublimeText will be distributed through the Package Control\cite{packagecontrol} package management system implemented by Will Bond. Package Control simplifies the distribution and maintainance of SublimeText packages by allowing them to be downloaded directly from Git repositories using an interface in the SublimeText application, and by tracking changes and automatically installing updates when they are available.
@@ -41,6 +52,12 @@
 		The Remote Collab server will be deployed onto the Google Compute Engine\cite{googlecompute} cloud services platform. Google Compute Engine provides virtual machine instances on Google infrastructure that may be rented by the hour. In the case of Remote Collab, these fees will be covered by Google Compute credits earned by Dibyojyoti through his participation in the HackMIT event. The server will also be distributed as an application through GitHub Releases, for individuals or groups interested on running a Remote Collab server on their own infrastructure.
 
 		Documentation will be provided through the GitHub Pages\cite{gh-pages} service, which automatically generates webpages for GitHub repositories based on their README files. The GitHub Pages site for Remote Collab for SublimeText is available at \url{http://teamremote.github.io/remote-sublime/}.
+
+	\subsection{Evaluation and Testing}
+		As discussed in \Cref{sec:implementation}, the Travis hosted continuous integration system will be used to build each push to the project's Git repositories and run them against test cases implemented using the PyUnit testing framework for Python.
+
+		Additionally, user acceptance testing will be carried out once the project approaches its' release date. As the project is primarily a tool for programmers and extends a programmer's text editor, most testers will have to be selected from students studying Computer Science. Ideally, these students could test the system by using it to collaborate on actual programming projects.
+
 	\pagebreak
 	\bibliographystyle{IEEEtran}
 	\bibliography{IEEEfull,remote.bib}
