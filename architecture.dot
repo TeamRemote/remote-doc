@@ -1,0 +1,12 @@
+digraph pubsub {
+	rankdir="LR";
+	client0[label=<Client <i>C</i><sub>0</sub>>];
+	server[label=<RemoteCollab Server> shape=rect];
+	client1[label=<Client <i>C</i><sub>1</sub>>];
+	cliente[label=<...> shape=plaintext];
+	clientn[label=<Client <i>C</i><sub>n</sub>>];
+	client0 -> server [label="submit diffs to server"];
+	server -> client1;
+	server -> cliente [label="publish to subscribers"];
+	server -> clientn;
+}
