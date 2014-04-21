@@ -1,0 +1,23 @@
+digraph diffsync {
+	subgraph clusterC1 {
+		c1text[shape = note label=<<i>C</i><sub>1</sub> text>];
+		c1shadow[shape = note label=<<i>C</i><sub>1</sub> shadow>];
+		style=filled;
+		color=lightgrey;
+		label = <Client <i>C</i><sub>1</sub>>;
+		rankdir = "LR";
+	}
+	subgraph clusterC2 {
+		c2text[shape = note label=<<i>C</i><sub>2</sub> text>];
+		c2shadow[shape = note label=<<i>C</i><sub>2</sub> shadow>];
+		style=filled;
+		color=lightgrey;
+		label = <Client <i>C</i><sub>2</sub>>;
+		rankdir = "LR";
+	}
+	c1text -> patch [label="Diff against shadow" color=blue];
+	c1shadow -> patch [color = blue];
+	patch -> c2shadow [label="Apply patch" color=blue];
+	c1text -> c1shadow [label = "becomes" color = red constraint = false];
+	c2shadow -> c2text [color = red label="becomes" constraint = false];
+}
